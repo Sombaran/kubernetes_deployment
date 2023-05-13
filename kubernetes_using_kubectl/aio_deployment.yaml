@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: all-in-one
-  namespace: aio
+  name: all-in-one-deployment
   labels:
-    app: myaio
+    app: all-in-one
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myaio
+      app: all-in-one
   template:
     metadata:
       labels:
-        app: myaio
+        app: all-in-one
     spec:
       containers:
-      - name: usomgupta
-        image: usomgupta/fedora-github-all-in-one:v3
-        #ports:
-        #- containerPort: 80
-        #resources:
-        #  requests:
-        #    cpu: "100m"
+      - name: all-in-one
+        image: usomgupta/all-in-one:23.20.06
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "10m"
